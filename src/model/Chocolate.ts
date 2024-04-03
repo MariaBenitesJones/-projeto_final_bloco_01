@@ -42,7 +42,7 @@ export class Chocolate extends Produto {
         if (tipo <= 50 && tipo >= 40) {
             console.log("Chocolate meio amargo\n");
         }
-        else if (tipo > 50) {
+        else if (tipo <= 100 && tipo >= 51) {
             console.log("Chocolate amargo\n");
         }
         else if (tipo >= 25 && tipo <= 39) {
