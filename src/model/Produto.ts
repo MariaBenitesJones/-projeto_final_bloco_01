@@ -78,11 +78,11 @@ export abstract class Produto {
     public visualizar(): void{
         
         console.log("****************************************************")
-        console.log("Produto")
+        console.log("                       PRODUTO                      ")
         console.log("****************************************************")
         console.log(`Id do produto: ${this._id}`)
         console.log(`Nome do produto: ${this._nome}`)
         console.log(`Gramas do produto: ${this._gramas}g`)
-        console.log(`Preço do produto: ${this._preco}`)
+        console.log(`Preço do produto: R$${this._preco}\n`)
     }
 }

@@ -1,6 +1,16 @@
 import readlinesync from "readline-sync";
+import { ProdutoController } from "./src/controller/ProdutoController";
+import { Chocolate } from "./src/model/Chocolate";
 
 export function main() {
+
+    let preco, porcentagem, gramas, id: number;
+    let nome: string;
+
+    const produtoController: ProdutoController = new ProdutoController();
+
+    produtoController.cadastrarProduto(new Chocolate(produtoController.gerarId(),
+        "Sonho de Lua", 120, 100, 50));
 
     let opcao: number;
 
@@ -35,25 +45,62 @@ export function main() {
             case 1:
                 console.log("\n\nCadastrar Produto \n\n");
 
+
+                nome = readlinesync.question("Digite o Nome do Produto: ");
+
+                preco = readlinesync.questionFloat("Digite o preco: ");
+
+                porcentagem = readlinesync.questionInt("Digite a porcentagem de cacau do produto: ");
+
+                gramas = readlinesync.questionInt("Digite as gramas do produto: ");
+
+                produtoController.cadastrarProduto(new Chocolate(produtoController.gerarId(), nome, gramas, preco, porcentagem));
+
                 keyPress()
                 break;
             case 2:
                 console.log("\n\nListar todos os Produtos\n\n");
+
+                produtoController.listarTodosOsProdutos();
 
                 keyPress()
                 break;
             case 3:
                 console.log("\n\nListar Produto por Id \n\n");
 
+                id = readlinesync.questionInt("Digite o Id do Produto: ");
+                produtoController.procurarPorId(id);
+
                 keyPress()
                 break;
             case 4:
                 console.log("\n\nAtualizar Dados do Produto\n\n");
 
+
+                id = readlinesync.questionInt("Digite o Id do Produto: ");
+
+                let produto = produtoController.buscarNoArray(id);
+
+                if (produto !== null) {
+
+                    nome = readlinesync.question("Digite o Nome do Produto: ");
+
+                    preco = readlinesync.questionFloat("Digite o preco: ");
+
+                    porcentagem = readlinesync.questionInt("Digite a porcentagem de cacau do produto: ");
+
+                    gramas = readlinesync.questionInt("Digite as gramas do produto: ");
+
+                    produtoController.atualizarProduto(new Chocolate(id, nome, gramas, preco, porcentagem));
+
+                }
                 keyPress()
                 break;
             case 5:
                 console.log("\n\nApagar Produto\n\n");
+
+                id = readlinesync.questionInt("Digite o Id do Produto: ");
+                produtoController.deletarProduto(id);
 
                 keyPress()
                 break;
