@@ -8,7 +8,7 @@ export function main() {
 
         console.log("*****************************************************");
         console.log("                                                     ");
-        console.log("                BANCO DO BRAZIL COM Z                ");
+        console.log("                     CÉU DE CACAU                    ");
         console.log("                                                     ");
         console.log("*****************************************************");
         console.log("                                                     ");
